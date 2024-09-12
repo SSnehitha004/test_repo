@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis Results</title>
+</head>
+<body>
+    <h1>Analysis Summary</h1>
+    <p>{{ summary }}</p>
+
+    <h2>Persons</h2>
+    <ul>
+    {% for person in persons %}
+        <li>{{ person }}</li>
+    {% endfor %}
+    </ul>
+
+    <h2>Places</h2>
+    <ul>
+    {% for place in places %}
+        <li>{{ place }}</li>
+    {% endfor %}
+    </ul>
+
+    <h2>Emotional Words</h2>
+    <ul>
+    {% for word, emotion in emotional_words %}
+        <li>{{ word }}: {{ emotion }}</li>
+    {% endfor %}
+    </ul>
+
+    <h2>Overall Tone</h2>
+    <p>{{ tone }}</p>
+
+    <h2>Playback</h2>
+    <audio controls>
+        <source src="{{ url_for('playback', audio_file=audio_file) }}" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio>
+</body>
+</html>
